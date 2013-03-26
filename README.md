@@ -51,6 +51,8 @@ or if you installed it with -g flag just
 
     karma start karma-dart.conf
 
+Then just open http://localhost:9876/ in [Dartium].
+
 ## Testing Web Components
 
 karma-dart adapter does not invoke DWC compiler, however it will detect changes
@@ -89,3 +91,4 @@ main() {
 [homepage]: https://github.com/karma-runner
 [unittest]: http://api.dartlang.org/docs/releases/latest/unittest.html
 [npm install]: https://npmjs.org/doc/install.html
+[Dartium]: http://www.dartlang.org/dartium/
