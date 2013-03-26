@@ -11,7 +11,7 @@ class AdapterConfigutation extends unittest.Configuration {
       super.onDone(success);
     } catch(e) {};
     js.scoped(() {
-      js.context.__testacular__.complete();
+      js.context.__karma__.complete();
     });
   }
 
@@ -26,7 +26,7 @@ class AdapterConfigutation extends unittest.Configuration {
         log.add(testCase.message);
         log.add(testCase.stackTrace);
       }
-      js.context.__testacular__.result(
+      js.context.__karma__.result(
         js.map({
           'id': testCase.id,
           'description': testCase.description,
@@ -48,8 +48,8 @@ main() {
 /*%TEST_MAIN_CALLS%*/
 
   js.scoped(() {
-    js.context.__testacular__.start = new js.Callback.once(() {});
-    js.context.__testacular__.info(js.map({'total': unittest.testCases.length}));
+    js.context.__karma__.start = new js.Callback.once(() {});
+    js.context.__karma__.info(js.map({'total': unittest.testCases.length}));
   });
   unittest.runTests();
 }
