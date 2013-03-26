@@ -28,7 +28,7 @@ frameworks = ['dart-unittest'];
 // all tests must be 'included', but all other libraries must be 'served' and
 // optionally 'watched' only.
 files = [
-  'test*.dart',
+  'tests/*.dart',
   {pattern: '**/*.dart', watched: false, included: false, served: true},
   'packages/browser/dart.js'
 ];
@@ -60,6 +60,25 @@ When using Dart Editor, it will automatically invoke DWC compiler when you chang
 the HTML/dart files and write them to the "web/out" folder. Just make sure your
 tests import files from the out folder, and your karma config serves/watches dart
 file in the out folder as well.
+
+```dart
+library click_counter_test;
+
+import 'package:unittest/unittest.dart';
+import 'dart:html';
+import '../web/out/xclickcounter.dart';
+
+main() {
+  test('CounterComponent.increment', () {
+    var hello = new DivElement();
+    var component = new CounterComponent.forElement(hello);
+    expect(component.count, equals(0));
+    component.increment();
+    expect(component.count, equals(1));
+  });
+}
+```
+
 
 ## Known Limitations/Issues
 
