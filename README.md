@@ -4,10 +4,15 @@ For more information on Karma-runner see the [homepage].
 
 ## Getting Started
 
-    npm install karma@canary-dart
-    npm install karma-dart@canary
+You'll need node.js: http://nodejs.org/download/
 
-and that you have the following dependencies in your pubspec.yaml
+Install karma and karma-dart adapter npms:
+
+    npm install karma@canary-dart karma-dart@canary
+
+Refer to [npm install] documentation for more details and install options.
+
+and that you need the following dependencies in your pubspec.yaml
 
     unittest: any
     browser: any
@@ -20,7 +25,7 @@ basePath = '.';
 frameworks = ['dart-unittest'];
 
 // list of files / patterns to load in the browser
-// all tests must be 'included', but all other libraries must be 'server' and
+// all tests must be 'included', but all other libraries must be 'served' and
 // optionally 'watched' only.
 files = [
   'test*.dart',
@@ -38,9 +43,23 @@ plugins = [
 ]
 ```
 
-You can run karma locally:
+You can run karma from the local folder:
 
     node node_modules/karma/bin/karma start karma-dart.conf
+
+or if you installed it with -g flag just
+
+    karma start karma-dart.conf
+
+## Testing Web Components
+
+karma-dart adapter does not invoke DWC compiler, however it will detect changes
+to generated files and run your tests automatically.
+
+When using Dart Editor, it will automatically invoke DWC compiler when you change
+the HTML/dart files and write them to the "web/out" folder. Just make sure your
+tests import files from the out folder, and your karma config serves/watches dart
+file in the out folder as well.
 
 ## Known Limitations/Issues
 
@@ -48,6 +67,6 @@ You can run karma locally:
 * When Dart syntax error is encountered, karma might get stuck until captureTimeout. There is no way to work around this until https://code.google.com/p/dart/issues/detail?id=5958
 
 
-
 [homepage]: https://github.com/karma-runner
 [unittest]: http://api.dartlang.org/docs/releases/latest/unittest.html
+[npm install]: https://npmjs.org/doc/install.html
