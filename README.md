@@ -12,7 +12,7 @@ Install karma and karma-dart adapter npms:
 
 Refer to [npm install] documentation for more details and install options.
 
-and that you need the following dependencies in your pubspec.yaml
+and you'll need the following dependencies in your pubspec.yaml
 
     unittest: any
     browser: any
@@ -83,7 +83,7 @@ main() {
 ## Known Limitations/Issues
 
 * Each test file must be a library -- due to the nature of the test runner, this is required.
-* When Dart syntax error is encountered, karma might get stuck until captureTimeout. There is no way to work around this until https://code.google.com/p/dart/issues/detail?id=5958
+* When Dart syntax error is encountered, karma SOMETIMES gets stuck until captureTimeout. There is no way to work around this until https://code.google.com/p/dart/issues/detail?id=5958
 
 
 [homepage]: https://github.com/karma-runner
