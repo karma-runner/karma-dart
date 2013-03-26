@@ -84,6 +84,7 @@ main() {
 
 ## Known Limitations/Issues
 
+* Missing support for dart2js use-case.
 * Missing Dartium launcher.
 * Each test file must be a library -- due to the nature of the test runner, this is required.
 * When Dart syntax error is encountered, karma SOMETIMES gets stuck until captureTimeout. There is no way to work around this until https://code.google.com/p/dart/issues/detail?id=5958
