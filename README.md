@@ -30,6 +30,9 @@ files = [
 
 autoWatch = true;
 
+// If browser does not capture in given timeout [ms], kill it
+captureTimeout = 5000;
+
 plugins = [
   'karma-dart'
 ]
@@ -38,6 +41,13 @@ plugins = [
 You can run karma locally:
 
     node node_modules/karma/bin/karma start karma-dart.conf
+
+## Known Limitations/Issues
+
+* Each test file must be a library -- due to the nature of the test runner, this is required.
+* When Dart syntax error is encountered, karma might get stuck until captureTimeout. There is no way to work around this until https://code.google.com/p/dart/issues/detail?id=5958
+
+
 
 [homepage]: https://github.com/karma-runner
 [unittest]: http://api.dartlang.org/docs/releases/latest/unittest.html
