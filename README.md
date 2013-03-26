@@ -35,5 +35,9 @@ plugins = [
 ]
 ```
 
+You can run karma locally:
+
+    node node_modules/karma/bin/karma start karma-dart.conf
+
 [homepage]: https://github.com/karma-runner
 [unittest]: http://api.dartlang.org/docs/releases/latest/unittest.html
