@@ -1,6 +1,7 @@
+import 'dart:core';
 import 'package:unittest/unittest.dart' as unittest;
 import 'package:js/js.dart' as js;
-%TEST_IMPORTS%
+/*%TEST_IMPORTS%*/
 
 class AdapterConfigutation extends unittest.Configuration {
   bool get autoStart => false;
@@ -13,30 +14,38 @@ class AdapterConfigutation extends unittest.Configuration {
       js.context.__testacular__.complete();
     });
   }
-  
+
   void onTestStart(TestCase testCase) {
     super.onTestStart(testCase);
   }
-  
+
   void onTestResult(TestCase testCase) {
     js.scoped(() {
+      var log = [];
+      if (testCase.result != unittest.PASS) {
+        log.add(testCase.message);
+        log.add(testCase.stackTrace);
+      }
       js.context.__testacular__.result(
         js.map({
+          'id': testCase.id,
           'description': testCase.description,
           'success': testCase.result == unittest.PASS,
           'suite': [],
-          'log': testCase.result == unittest.PASS ? [] : [testCase.message] 
+          'skipped': !testCase.enabled,
+          'log': log,
+          'time': new DateTime.now().difference(testCase.startTime).inMilliseconds
         })
       );
     });
   }
-} 
+}
 
 main() {
   unittest.configure(new AdapterConfigutation());
   print('configure first...');
-  
-%TEST_MAIN_CALLS%
+
+/*%TEST_MAIN_CALLS%*/
 
   js.scoped(() {
     js.context.__testacular__.start = new js.Callback.once(() {});

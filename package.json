@@ -1,11 +1,8 @@
 {
   "name": "karma-dart",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Karma plugin - adapter for Dart unittest testing framework.",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "grunt test"
-  },
   "repository": {
     "type": "git",
     "url": "git://github.com/karma-runner/karma-dart.git"
@@ -21,15 +18,7 @@
     "mime": "*",
     "q": "*"
   },
-  "devDependencies": {
-    "grunt": "~0.4.0rc5",
-    "grunt-contrib-jshint": "~0.1.1rc5",
-    "testacular": "*",
-    "testacular-jasmine": "*",
-    "gruntacular": "~0.1.0"
-  },
-  "peerDependencies": {
-    "testacular": "~0.7"
-  },
+  "devDependencies": {},
+  "readmeFilename": "README.md",
   "license": "MIT"
 }
