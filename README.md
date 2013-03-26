@@ -29,7 +29,7 @@ frameworks = ['dart-unittest'];
 // optionally 'watched' only.
 files = [
   'tests/*.dart',
-  {pattern: '**/*.dart', watched: false, included: false, served: true},
+  {pattern: '**/*.dart', watched: true, included: false, served: true},
   'packages/browser/dart.js'
 ];
 
