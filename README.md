@@ -28,7 +28,7 @@ frameworks = ['dart-unittest'];
 // all tests must be 'included', but all other libraries must be 'served' and
 // optionally 'watched' only.
 files = [
-  'tests/*.dart',
+  'test/*.dart',
   {pattern: '**/*.dart', watched: true, included: false, served: true},
   'packages/browser/dart.js'
 ];
