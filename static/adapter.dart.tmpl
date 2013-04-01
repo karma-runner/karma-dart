@@ -15,11 +15,11 @@ class AdapterConfigutation extends unittest.Configuration {
     });
   }
 
-  void onTestStart(TestCase testCase) {
+  void onTestStart(unittest.TestCase testCase) {
     super.onTestStart(testCase);
   }
 
-  void onTestResult(TestCase testCase) {
+  void onTestResult(unittest.TestCase testCase) {
     js.scoped(() {
       var log = [];
       if (testCase.result != unittest.PASS) {
