@@ -1,6 +1,4 @@
-import 'dart:core';
-import 'package:unittest/unittest.dart' as unittest;
-import 'package:js/js.dart' as js;
+/*%ADAPTER_IMPORTS%*/
 /*%TEST_IMPORTS%*/
 
 class AdapterConfigutation extends unittest.Configuration {
@@ -42,7 +40,7 @@ class AdapterConfigutation extends unittest.Configuration {
 }
 
 main() {
-  unittest.configure(new AdapterConfigutation());
+  unittest.unittestConfiguration = new AdapterConfigutation();
 
 /*%TEST_MAIN_CALLS%*/
 
