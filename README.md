@@ -21,26 +21,30 @@ and you'll need the following dependencies in your pubspec.yaml
 The following is an example of karma config.
 
 ```javascript
-basePath = '.';
-frameworks = ['dart-unittest'];
+module.exports = function(karma) {
+  karma.configure({
+    basePath: '.',
+    frameworks: ['dart-unittest'],
 
-// list of files / patterns to load in the browser
-// all tests must be 'included', but all other libraries must be 'served' and
-// optionally 'watched' only.
-files = [
-  'test/*.dart',
-  {pattern: '**/*.dart', watched: true, included: false, served: true},
-  'packages/browser/dart.js'
-];
+    // list of files / patterns to load in the browser
+    // all tests must be 'included', but all other libraries must be 'served' and
+    // optionally 'watched' only.
+    files: [
+      'test/*.dart',
+      {pattern: '**/*.dart', watched: true, included: false, served: true},
+      'packages/browser/dart.js'
+    ],
 
-autoWatch = true;
+    autoWatch: true,
 
-// If browser does not capture in given timeout [ms], kill it
-captureTimeout = 5000;
+    // If browser does not capture in given timeout [ms], kill it
+    captureTimeout: 5000,
 
-plugins = [
-  'karma-dart'
-]
+    plugins: [
+      'karma-dart'
+    ]
+  });
+};
 ```
 
 You can run karma from the local folder:
