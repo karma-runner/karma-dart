@@ -32,10 +32,29 @@ class AdapterConfigutation extends unittest.Configuration {
           'suite': [],
           'skipped': !testCase.enabled,
           'log': log,
-          'time': new DateTime.now().difference(testCase.startTime).inMilliseconds
+          'time': testCase.runningTime.inMilliseconds
         })
       );
     });
+  }
+
+  void onLogMessage(TestCase testCase, String message) {
+    js.scoped(() {
+      js.context.__karma__.info(js.map({
+        'dump': message
+      }));
+    });
+  }
+
+  void onSummary(int passed, int failed, int errors, List<TestCase> results,
+      String uncaughtError) {
+    if (uncaughtError != null) {
+      js.scoped(() {
+        js.context.__karma__.error(uncaughtError);
+      });
+    }
+    // it's OK to print the default summary into the console
+    super.onSummary(passed, failed, errors, results, uncaughtError);
   }
 }
 
