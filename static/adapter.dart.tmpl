@@ -38,7 +38,7 @@ class AdapterConfigutation extends unittest.Configuration {
     });
   }
 
-  void onLogMessage(TestCase testCase, String message) {
+  void onLogMessage(unittest.TestCase testCase, String message) {
     js.scoped(() {
       js.context.__karma__.info(js.map({
         'dump': message
@@ -46,8 +46,8 @@ class AdapterConfigutation extends unittest.Configuration {
     });
   }
 
-  void onSummary(int passed, int failed, int errors, List<TestCase> results,
-      String uncaughtError) {
+  void onSummary(int passed, int failed, int errors,
+      List<unittest.TestCase> results, String uncaughtError) {
     if (uncaughtError != null) {
       js.scoped(() {
         js.context.__karma__.error(uncaughtError);
