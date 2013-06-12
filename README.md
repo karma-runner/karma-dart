@@ -32,7 +32,8 @@ module.exports = function(karma) {
     files: [
       'test/*.dart',
       {pattern: '**/*.dart', watched: true, included: false, served: true},
-      'packages/browser/dart.js'
+      'packages/browser/dart.js',
+      'packages/browser/interop.js'
     ],
 
     autoWatch: true,
