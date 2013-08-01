@@ -19,10 +19,10 @@ class AdapterConfigutation extends unittest.Configuration {
 
   void onTestResult(unittest.TestCase testCase) {
     js.scoped(() {
-      var log = [];
+      var logData = [];
       if (testCase.result != unittest.PASS) {
-        log.add(testCase.message);
-        log.add(testCase.stackTrace);
+        logData.add(testCase.message);
+        logData.add(testCase.stackTrace.toString());
       }
       js.context.__karma__.result(
         js.map({
@@ -31,7 +31,7 @@ class AdapterConfigutation extends unittest.Configuration {
           'success': testCase.result == unittest.PASS,
           'suite': [],
           'skipped': !testCase.enabled,
-          'log': log,
+          'log': js.array(logData),
           'time': testCase.runningTime.inMilliseconds
         })
       );
