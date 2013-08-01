@@ -8,7 +8,7 @@ You'll need node.js: http://nodejs.org/download/
 
 Install karma and karma-dart adapter npms:
 
-    npm install karma@canary karma-dart@canary
+    npm install karma-dart@canary
 
 Refer to [npm install] documentation for more details and install options.
 
