@@ -1,6 +1,6 @@
 {
   "name": "karma-dart",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A Karma plugin - adapter for Dart unittest testing framework.",
   "main": "lib/index.js",
   "repository": {
@@ -16,7 +16,8 @@
   "author": "Pavel Jbanov <pavelgj@gmail.com>",
   "dependencies": {
     "mime": "*",
-    "q": "*"
+    "q": "*",
+    "karma": "0.9.5"
   },
   "devDependencies": {},
   "readmeFilename": "README.md",
