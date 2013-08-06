@@ -14,10 +14,12 @@
     "unittest"
   ],
   "author": "Pavel Jbanov <pavelgj@gmail.com>",
+  "peerDependencies": {
+    "karma": ">=0.9.5"
+  },
   "dependencies": {
     "mime": "*",
-    "q": "*",
-    "karma": "0.9.5"
+    "q": "*"
   },
   "devDependencies": {},
   "readmeFilename": "README.md",
