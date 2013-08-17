@@ -19,6 +19,9 @@ class AdapterConfiguration extends unittest.SimpleConfiguration {
   }
 
   void onTestResult(unittest.TestCase testCase) {
+    var suites = testCase.description.split(unittest.groupSep);
+    var description = suites.removeLast();
+
     js.scoped(() {
       var logData = [];
       if (testCase.result != unittest.PASS) {
@@ -28,9 +31,9 @@ class AdapterConfiguration extends unittest.SimpleConfiguration {
       js.context.__karma__.result(
         js.map({
           'id': testCase.id,
-          'description': testCase.description,
+          'description': description,
           'success': testCase.result == unittest.PASS,
-          'suite': [],
+          'suite': suites,
           'skipped': !testCase.enabled,
           'log': js.array(logData),
           'time': testCase.runningTime.inMilliseconds
@@ -60,6 +63,9 @@ class AdapterConfiguration extends unittest.SimpleConfiguration {
 }
 
 main() {
+  // Change the groupSeparator, as the default " " is commonly used in spec
+  // descriptions, which screws it up when we try to parse the original suites.
+  unittest.groupSep = '#';
   unittest.unittestConfiguration = new AdapterConfiguration();
 
 /*%TEST_MAIN_CALLS%*/
