@@ -8,7 +8,7 @@ You'll need node.js: http://nodejs.org/download/
 
 Install karma and karma-dart adapter npms:
 
-    npm install karma-dart@canary
+    npm install karma-dart
 
 Refer to [npm install] documentation for more details and install options.
 
@@ -21,8 +21,8 @@ and you'll need the following dependencies in your pubspec.yaml
 The following is an example of karma config.
 
 ```javascript
-module.exports = function(karma) {
-  karma.configure({
+module.exports = function(config) {
+  config.set({
     basePath: '.',
     frameworks: ['dart-unittest'],
 
