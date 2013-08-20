@@ -1,7 +1,7 @@
 /*%ADAPTER_IMPORTS%*/
 /*%TEST_IMPORTS%*/
 
-class AdapterConfigutation extends unittest.Configuration {
+class AdapterConfiguration extends unittest.SimpleConfiguration {
   bool get autoStart => false;
 
   void onDone(success) {
@@ -59,7 +59,7 @@ class AdapterConfigutation extends unittest.Configuration {
 }
 
 main() {
-  unittest.unittestConfiguration = new AdapterConfigutation();
+  unittest.unittestConfiguration = new AdapterConfiguration();
 
 /*%TEST_MAIN_CALLS%*/
 
