@@ -18,7 +18,12 @@
     "karma": ">=0.10"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-npm": "~0.0.2",
+    "grunt": "~0.4.1",
+    "grunt-bump": "~0.0.11",
+    "grunt-auto-release": "~0.0.4"
+  },
   "readmeFilename": "README.md",
   "license": "MIT"
 }
