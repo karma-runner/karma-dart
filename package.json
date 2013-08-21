@@ -25,5 +25,12 @@
     "grunt-auto-release": "~0.0.4"
   },
   "readmeFilename": "README.md",
-  "license": "MIT"
+  "license": "MIT",
+  "contributors": [
+    "Pavel J <pavelgj@gmail.com>",
+    "Vojta Jina <vojta.jina@gmail.com>",
+    "Pavel Jbanov <pavelj@google.com>",
+    "James deBoer <james@huronbox.com>",
+    "Chris Bracken <chris@bracken.jp>"
+  ]
 }
