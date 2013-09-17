@@ -1,6 +1,6 @@
 {
   "name": "karma-dart",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Karma plugin - adapter for Dart unittest testing framework.",
   "main": "lib/index.js",
   "repository": {
