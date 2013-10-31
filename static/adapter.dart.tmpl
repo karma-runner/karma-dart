@@ -9,9 +9,7 @@ class AdapterConfiguration extends unittest.SimpleConfiguration {
     try {
       super.onDone(success);
     } catch(e) {};
-    js.scoped(() {
-      js.context.__karma__.complete();
-    });
+    js.context.__karma__.complete();
   }
 
   void onTestStart(unittest.TestCase testCase) {
