@@ -1,5 +1,6 @@
 /*%ADAPTER_IMPORTS%*/
 import 'dart:js' as js;
+import 'dart:async';
 
 /*%TEST_IMPORTS%*/
 
@@ -56,10 +57,19 @@ main() {
   unittest.groupSep = '#';
   unittest.unittestConfiguration = new AdapterConfiguration();
 
+  var spec = new ZoneSpecification(print: (Zone self, ZoneDelegate parent, Zone zone, String line) {
+    js.context['__karma__'].callMethod('info', [new js.JsObject.jsify({
+      'dump': line
+    })]);
+  });
+
+  runZoned(() {
 /*%TEST_MAIN_CALLS%*/
 
-  js.context['__karma__']['start'] = () {};
-  js.context['__karma__'].callMethod('info', [new js.JsObject.jsify({'total': unittest.testCases.length})]);
-  unittest.runTests();
+    js.context['__karma__']['start'] = () {};
+    js.context['__karma__'].callMethod('info', [new js.JsObject.jsify({'total': unittest.testCases.length})]);
+
+    unittest.runTests();
+  }, zoneSpecification: spec);
 }
 
