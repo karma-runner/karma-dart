@@ -1,4 +1,5 @@
 /*%ADAPTER_IMPORTS%*/
+import 'dart:js' as js;
 
 /*%TEST_IMPORTS%*/
 
@@ -6,10 +7,7 @@ class AdapterConfiguration extends unittest.SimpleConfiguration {
   bool get autoStart => false;
 
   void onDone(success) {
-    try {
-      super.onDone(success);
-    } catch(e) {};
-    js.context.__karma__.complete();
+    js.context['__karma__'].callMethod('complete', []);
   }
 
   void onTestStart(unittest.TestCase testCase) {
@@ -25,32 +23,30 @@ class AdapterConfiguration extends unittest.SimpleConfiguration {
       logData.add(testCase.message);
       logData.add(testCase.stackTrace.toString());
     }
-    js.context.__karma__.result(
-      js.map({
+    js.context['__karma__'].callMethod('result', [
+      new js.JsObject.jsify({
         'id': testCase.id,
         'description': description,
         'success': testCase.result == unittest.PASS,
         'suite': suites,
         'skipped': !testCase.enabled,
-        'log': js.array(logData),
+        'log': new js.JsObject.jsify(logData),
         'time': testCase.runningTime.inMilliseconds
       })
-    );
+    ]);
   }
 
   void onLogMessage(unittest.TestCase testCase, String message) {
-    js.context.__karma__.info(js.map({
+    js.context['__karma__'].callMethod('info', [new js.JsObject.jsify({
       'dump': message
-    }));
+    })]);
   }
 
   void onSummary(int passed, int failed, int errors,
       List<unittest.TestCase> results, String uncaughtError) {
     if (uncaughtError != null) {
-      js.context.__karma__.error(uncaughtError);
+      js.context['__karma__'].callMethod('error', [uncaughtError]);
     }
-    // it's OK to print the default summary into the console
-    super.onSummary(passed, failed, errors, results, uncaughtError);
   }
 }
 
@@ -62,8 +58,8 @@ main() {
 
 /*%TEST_MAIN_CALLS%*/
 
-  js.context.__karma__.start = () {};
-  js.context.__karma__.info(js.map({'total': unittest.testCases.length}));
+  js.context['__karma__']['start'] = () {};
+  js.context['__karma__'].callMethod('info', [new js.JsObject.jsify({'total': unittest.testCases.length})]);
   unittest.runTests();
 }
 
