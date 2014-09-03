@@ -18,7 +18,7 @@
     "karma": ">=0.10"
   },
   "dependencies": {
-    "dart2jsaas": "~0.0.1"
+    "dart2jsaas": "~0.0.16"
   },
   "devDependencies": {
     "grunt-npm": "~0.0.2",
