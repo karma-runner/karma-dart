@@ -29,10 +29,11 @@
   "readmeFilename": "README.md",
   "license": "MIT",
   "contributors": [
+    "James deBoer <james@huronbox.com>",
     "Pavel J <pavelgj@gmail.com>",
     "Vojta Jina <vojta.jina@gmail.com>",
     "Pavel Jbanov <pavelj@google.com>",
-    "James deBoer <james@huronbox.com>",
+    "Chirayu Krishnappa <chirayu@chirayuk.com>",
     "Chris Bracken <chris@bracken.jp>"
   ]
 }
