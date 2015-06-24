@@ -20,7 +20,7 @@ module.exports = function (grunt) {
       options: {
         singleRun: true
       },
-      coffee: {
+      simple: {
         configFile: 'examples/simple/karma.conf.js'
       }
     },
