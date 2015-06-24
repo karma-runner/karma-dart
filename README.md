@@ -1,3 +1,11 @@
+# karma-dart
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/karma-runner/karma-dart)
+ [![npm version](https://img.shields.io/npm/v/karma-dart.svg?style=flat-square)](https://www.npmjs.com/package/karma-dart) [![npm downloads](https://img.shields.io/npm/dm/karma-dart.svg?style=flat-square)](https://www.npmjs.com/package/karma-dart)
+
+[![Build Status](https://img.shields.io/travis/karma-runner/karma-dart/master.svg?style=flat-square)](https://travis-ci.org/karma-runner/karma-dart) [![Dependency Status](https://img.shields.io/david/karma-runner/karma-dart.svg?style=flat-square)](https://david-dm.org/karma-runner/karma-dart) [![devDependency Status](https://img.shields.io/david/dev/karma-runner/karma-dart.svg?style=flat-square)](https://david-dm.org/karma-runner/karma-dart#info=devDependencies)
+
+
 > Adapter for the Dart [unittest] testing framework.
 
 For more information on Karma-runner see the [homepage].
@@ -8,14 +16,18 @@ You'll need node.js: http://nodejs.org/download/
 
 Install karma and karma-dart adapter npms:
 
-    npm install karma-dart
+```bash
+$ npm install karma-dart
+```
 
 Refer to [npm install] documentation for more details and install options.
 
 and you'll need the following dependencies in your pubspec.yaml
 
-    unittest: any
-    browser: any
+```yaml
+unittest: any
+browser: any
+```
 
 The following is an example of karma config.
 
@@ -48,13 +60,15 @@ module.exports = function(config) {
 ```
 
 You can run karma from the local folder:
-
-    node node_modules/karma/bin/karma start karma-dart.conf
+```bash
+$ node node_modules/karma/bin/karma start karma-dart.conf
+```
 
 or if you installed it with -g flag just
 
-    karma start karma-dart.conf
-
+```bash
+$ karma start karma-dart.conf
+```
 Then just open http://localhost:9876/ in [Dartium].
 
 ## Known Limitations/Issues

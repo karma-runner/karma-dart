@@ -14,17 +14,20 @@
     "unittest"
   ],
   "author": "Pavel Jbanov <pavelgj@gmail.com>",
-  "peerDependencies": {
-    "karma": ">=0.10"
-  },
   "dependencies": {
-    "dart2jsaas": "~0.0.16"
+    "dart2jsaas": "^0.0.16"
   },
   "devDependencies": {
-    "grunt-npm": "~0.0.2",
-    "grunt": "~0.4.1",
-    "grunt-bump": "~0.0.11",
-    "grunt-auto-release": "~0.0.4"
+    "eslint": "^0.23.0",
+    "eslint-config-standard": "^3.3.0",
+    "grunt": "^0.4.5",
+    "grunt-auto-release": "^0.0.6",
+    "grunt-bump": "^0.3.1",
+    "grunt-eslint": "^15.0.0",
+    "grunt-karma": "^0.11.1",
+    "grunt-npm": "^0.0.2",
+    "karma": "^0.12.37",
+    "load-grunt-tasks": "^3.2.0"
   },
   "readmeFilename": "README.md",
   "license": "MIT",

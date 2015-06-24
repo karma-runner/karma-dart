@@ -1,43 +1,43 @@
 // Remove old rules on load.
-chrome.declarativeWebRequest.onRequest.removeRules();
+chrome.declarativeWebRequest.onRequest.removeRules()
 
-var prevFiles = {};
+var prevFiles = {}
 
 // Called when a message is passed.
-function onRequest(request, sender, sendResponse) {
+function onRequest (request, sender, sendResponse) {
   // Show the page action for the tab that the sender (content script) was on.
-  chrome.pageAction.show(sender.tab.id);
+  chrome.pageAction.show(sender.tab.id)
 
-  var files = request.files;
+  var files = request.files
 
-  if (request.action == 'load') {
-    var rules = [];
+  if (request.action === 'load') {
+    var rules = []
     for (var file in files) {
-      var regex;
+      var regex
       var isKnownFile =
-          prevFiles[sender.tab.id] && prevFiles[sender.tab.id][file];
+      prevFiles[sender.tab.id] && prevFiles[sender.tab.id][file]
       if (isKnownFile) {
-        if (prevFiles[sender.tab.id][file] == files[file]) {
+        if (prevFiles[sender.tab.id][file] === files[file]) {
           // We can skip this rule if the timestamp hasn't change.
-          continue;
+          continue
         }
-        regex = '^([^\\?]*)\\?' + prevFiles[sender.tab.id][file] + '$';
+        regex = '^([^\\?]*)\\?' + prevFiles[sender.tab.id][file] + '$'
       } else {
-        regex = '^([^\\?]*)$';
+        regex = '^([^\\?]*)$'
       }
       var actions = [
         new chrome.declarativeWebRequest.RedirectByRegEx({
           from: regex,
           to: '$1?' + files[file]
         })
-      ];
+      ]
       if (!isKnownFile) { // is new file
         actions.push(
-            new chrome.declarativeWebRequest.RemoveResponseHeader(
-                {name: 'Cache-Control'}));
+          new chrome.declarativeWebRequest.RemoveResponseHeader(
+            {name: 'Cache-Control'}))
         actions.push(
-            new chrome.declarativeWebRequest.AddResponseHeader(
-                {name: 'Cache-Control', value: 'no-cache'}));
+          new chrome.declarativeWebRequest.AddResponseHeader(
+            {name: 'Cache-Control', value: 'no-cache'}))
       }
       rules.push({
         conditions: [
@@ -46,15 +46,15 @@ function onRequest(request, sender, sendResponse) {
           })
         ],
         actions: actions
-      });
+      })
     }
-    prevFiles[sender.tab.id] = files;
-    chrome.declarativeWebRequest.onRequest.addRules(rules, function(callback) {
+    prevFiles[sender.tab.id] = files
+    chrome.declarativeWebRequest.onRequest.addRules(rules, function (callback) {
       // We reply back only when new rules are set.
-      sendResponse({});
-    });
+      sendResponse({})
+    })
   }
-  // Return nothing to let the connection be cleaned up.
-};
+// Return nothing to let the connection be cleaned up.
+}
 
-chrome.extension.onRequest.addListener(onRequest);
+chrome.extension.onRequest.addListener(onRequest)
