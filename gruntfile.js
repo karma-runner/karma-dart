@@ -13,7 +13,8 @@ module.exports = function (grunt) {
         commitFiles: [
           'package.json',
           'CHANGELOG.md'
-        ]
+        ],
+        prereleaseName: 'rc'
       }
     },
     karma: {
