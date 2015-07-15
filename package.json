@@ -33,11 +33,13 @@
   "readmeFilename": "README.md",
   "license": "MIT",
   "contributors": [
-    "James deBoer <james@huronbox.com>",
-    "Pavel J <pavelgj@gmail.com>",
     "Vojta Jina <vojta.jina@gmail.com>",
+    "Pavel J <pavelgj@gmail.com>",
+    "James deBoer <james@huronbox.com>",
+    "dignifiedquire <dignifiedquire@gmail.com>",
     "Pavel Jbanov <pavelj@google.com>",
-    "Chirayu Krishnappa <chirayu@chirayuk.com>",
-    "Chris Bracken <chris@bracken.jp>"
+    "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
+    "Chris Bracken <chris@bracken.jp>",
+    "Chirayu Krishnappa <chirayu@chirayuk.com>"
   ]
 }
