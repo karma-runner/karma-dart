@@ -1,6 +1,6 @@
 {
   "name": "karma-dart",
-  "version": "0.3.0-rc.0",
+  "version": "0.3.0",
   "description": "A Karma plugin - adapter for Dart unittest testing framework.",
   "main": "lib/index.js",
   "repository": {
@@ -26,7 +26,7 @@
     "grunt-eslint": "^15.0.0",
     "grunt-karma": "^0.11.1",
     "grunt-npm": "^0.0.2",
-    "karma": "^0.12.37",
+    "karma": "^0.13.0",
     "karma-chrome-launcher": "^0.2.0",
     "load-grunt-tasks": "^3.2.0"
   },
